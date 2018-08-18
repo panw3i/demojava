@@ -15,23 +15,14 @@ public class Main {
 
 }
 
-abstract class Animal {
-    int num = 10;
-    abstract public void eat();
+interface Animal {
+   abstract void eat();
 }
 
-class Cat extends Animal{
+class Cat implements Animal{
     int num =20;
     @Override
     public void eat() {
         System.out.println("猫吃鱼");
-    }
-}
-
-class Dog extends Animal{
-
-    @Override
-    public void eat() {
-        System.out.println("狗吃屎");
     }
 }
