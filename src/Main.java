@@ -14,7 +14,7 @@ public class Main {
 class A {
     int a = 1;
     int b = 10;
-    final String STATE = "定义一个常量";
+   public static final String STATE = "oop";
     public  A(String s ){
 
         System.out.println("父类初始化");
