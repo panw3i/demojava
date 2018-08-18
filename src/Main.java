@@ -1,38 +1,37 @@
-import sun.rmi.runtime.Log;
+
 
 public class Main {
 
     public static void main(String[] a) {
-        B b = new B("sss");
-        b.print();
 
+        Cat cat = new Cat();
+        method(cat);
+    }
+
+    public static void method(Animal animal){
+        animal.eat();
     }
 
 
 }
 
-class A {
-    int a = 1;
-    int b = 10;
-   public static final String STATE = "oop";
-    public  A(String s ){
+abstract class Animal {
+    int num = 10;
+    abstract public void eat();
+}
 
-        System.out.println("父类初始化");
-    }
-    private static void show(){
-        System.out.println("A");
+class Cat extends Animal{
+    int num =20;
+    @Override
+    public void eat() {
+        System.out.println("猫吃鱼");
     }
 }
 
-class B extends A{
-    public B(String s){
-        super(s);
-    }
+class Dog extends Animal{
 
-    int b =2;
-    public void print(){
-        System.out.println(this.b);
-        System.out.println(super.b);
+    @Override
+    public void eat() {
+        System.out.println("狗吃屎");
     }
-
 }
