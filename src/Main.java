@@ -1,66 +1,38 @@
-
+import sun.rmi.runtime.Log;
 
 public class Main {
 
     public static void main(String[] a) {
-        Person p1 = new Person();
-        Person p2 = new Person();
-        System.out.println("主方法执行");
+        B b = new B("sss");
+        b.print();
+
     }
 
-    static {
-        System.out.println("定义在主方法的静态代码块");
+
+}
+
+class A {
+    int a = 1;
+    int b = 10;
+    final String STATE = "定义一个常量";
+    public  A(String s ){
+
+        System.out.println("父类初始化");
+    }
+    private static void show(){
+        System.out.println("A");
     }
 }
 
-class Person{
-   private int width;
-   private int height;
-   static String country;
-
-    {
-        System.out.println("构建代码块1");
+class B extends A{
+    public B(String s){
+        super(s);
     }
 
-    {
-        System.out.println("构建代码块2");
+    int b =2;
+    public void print(){
+        System.out.println(this.b);
+        System.out.println(super.b);
     }
-
-
-    public Person(){};
-
-   public Person(int width,int height){
-       this.width = width;
-       this.height = height;
-
-   }
-
-    static {
-        System.out.println("静态代码块1");
-    }
-
-   public void setWidth(int width){
-       this.width = width;
-   }
-
-   public void setHeight(int height){
-       this.height = height;
-   }
-
-   public int getWidth(){
-       return this.width;
-   }
-
-   public int getHeight(){
-       return this.height;
-   }
-
-   public int getArea(){
-       return this.width * this.height;
-   }
-
-   static {
-       System.out.println("静态代码块2");
-   }
 
 }
